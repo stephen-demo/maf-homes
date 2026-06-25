@@ -241,6 +241,31 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(200,145,58,0.12);pa
 .social-link{width:34px;height:34px;border:1px solid rgba(200,145,58,0.28);display:flex;align-items:center;justify-content:center;color:var(--gold);text-decoration:none;transition:background 0.3s,border-color 0.3s;}
 .social-link:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold);}
 
+/* BROCHURE MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,17,26,0.85);backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{background:var(--navy-mid);border:1px solid rgba(200,145,58,0.2);padding:2.75rem 2.5rem;width:100%;max-width:420px;position:relative;transform:translateY(16px);transition:transform 0.3s;}
+.modal-overlay.open .modal-box{transform:translateY(0);}
+.modal-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;color:rgba(247,244,239,0.35);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
+.modal-close:hover{color:var(--gold);}
+.modal-eyebrow{font-family:'THICCCBOI',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+.modal-title{font-family:'THICCCBOI',sans-serif;font-size:1.5rem;font-weight:400;color:var(--off-white);margin-bottom:0.4rem;line-height:1.2;}
+.modal-sub{font-size:0.78rem;font-weight:300;color:rgba(247,244,239,0.4);margin-bottom:1.75rem;line-height:1.6;}
+.modal-field{margin-bottom:1rem;}
+.modal-label{font-family:'THICCCBOI',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,244,239,0.55);display:block;margin-bottom:0.35rem;}
+.modal-input{width:100%;background:rgba(247,244,239,0.05);border:1px solid rgba(247,244,239,0.12);color:var(--off-white);font-family:'THICCCBOI',sans-serif;font-size:0.88rem;font-weight:300;padding:0.7rem 0.9rem;outline:none;transition:border-color 0.25s;border-radius:0;}
+.modal-input:focus{border-color:var(--gold);}
+.modal-input::placeholder{color:rgba(247,244,239,0.22);}
+.modal-submit{width:100%;margin-top:1.35rem;font-family:'THICCCBOI',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--navy-deep);border:none;padding:0.9rem;cursor:pointer;transition:background 0.25s;}
+.modal-submit:hover{background:var(--gold-light);}
+.modal-submit:disabled{opacity:0.6;cursor:not-allowed;}
+.modal-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:1rem 0;}
+.modal-success.show{display:flex;}
+.modal-success-icon{font-size:2rem;margin-bottom:0.75rem;}
+.modal-success-title{font-family:'THICCCBOI',sans-serif;font-size:1.2rem;font-weight:400;color:var(--off-white);margin-bottom:0.4rem;}
+.modal-success-sub{font-size:0.78rem;font-weight:300;color:rgba(247,244,239,0.4);line-height:1.6;}
+@media(max-width:480px){.modal-box{padding:2rem 1.5rem;margin:1rem;}}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -556,6 +581,36 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(200,145,58,0.12);pa
   </div>
 </footer>
 
+<!-- BROCHURE MODAL -->
+<div class="modal-overlay" id="brochureModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div id="modalForm">
+      <div class="modal-eyebrow">Free Download</div>
+      <h2 class="modal-title" id="modalTitle">Get Our Brochure</h2>
+      <p class="modal-sub">Enter your details and the PDF will download instantly.</p>
+      <div class="modal-field">
+        <label class="modal-label" for="mFirstName">First Name</label>
+        <input class="modal-input" type="text" id="mFirstName" placeholder="Your first name" autocomplete="given-name">
+      </div>
+      <div class="modal-field">
+        <label class="modal-label" for="mEmail">Email Address</label>
+        <input class="modal-input" type="email" id="mEmail" placeholder="you@email.com" autocomplete="email">
+      </div>
+      <div class="modal-field">
+        <label class="modal-label" for="mPhone">Phone Number</label>
+        <input class="modal-input" type="tel" id="mPhone" placeholder="+234 000 000 0000" autocomplete="tel">
+      </div>
+      <button class="modal-submit" id="modalSubmit">Download Brochure →</button>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">✓</div>
+      <div class="modal-success-title">Downloading now</div>
+      <p class="modal-success-sub">Your brochure is on its way.<br>We'll be in touch soon.</p>
+    </div>
+  </div>
+</div>
+
 <script>
 // Nav scroll
 document.addEventListener('DOMContentLoaded', function() {
@@ -630,6 +685,59 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function() {
       setTimeout(openAccordion, 400);
     });
+  });
+
+  // Brochure modal
+  var SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+  var modal = document.getElementById('brochureModal');
+
+  function openModal() { modal.classList.add('open'); document.getElementById('mFirstName').focus(); }
+  function closeModal() { modal.classList.remove('open'); }
+
+  // Intercept all brochure download links
+  document.querySelectorAll('a[download][href*="Brochure"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+  document.getElementById('modalSubmit').addEventListener('click', function() {
+    var firstName = document.getElementById('mFirstName').value.trim();
+    var email = document.getElementById('mEmail').value.trim();
+    var phone = document.getElementById('mPhone').value.trim();
+    if (!firstName || !email || !phone) { alert('Please fill in all three fields.'); return; }
+
+    var btn = document.getElementById('modalSubmit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    // Send to Google Sheet
+    if (SHEET_URL && SHEET_URL !== 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+      fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName: firstName, email: email, phone: phone })
+      }).catch(function() {});
+    }
+
+    // Trigger download
+    var a = document.createElement('a');
+    a.href = 'MAF-Design-Projects-Brochure.pdf';
+    a.download = 'MAF-Design-Projects-Brochure.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Show success
+    document.getElementById('modalForm').style.display = 'none';
+    document.getElementById('modalSuccess').classList.add('show');
+    setTimeout(closeModal, 3000);
   });
 
   // Form submit
