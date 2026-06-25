@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedroom & Toilet Interior Design, Epe — MAF Design Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1a2535;--navy-deep:#111b28;--navy-mid:#243040;--gold:#c8913a;--gold-light:#e0aa58;--off-white:#f7f4ef;--warm-gray:#9a9088;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--navy-deep);color:var(--off-white);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--navy-deep);}::-webkit-scrollbar-thumb{background:var(--gold);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,27,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,145,58,0.15);}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:1rem;letter-spacing:0.12em;color:var(--off-white);text-transform:uppercase;line-height:1.2;}
+.nav-logo-text span{color:var(--gold);display:block;font-size:0.6rem;letter-spacing:0.2em;font-weight:400;}
+.nav-back{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,244,239,0.6);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;}
+.nav-back:hover{color:var(--gold);}
+.nav-back svg{transition:transform 0.3s;}
+.nav-back:hover svg{transform:translateX(-3px);}
+.nav-cta{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:0.45rem 1.1rem;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--navy-deep);}
+.project-hero{height:85vh;min-height:580px;position:relative;display:flex;align-items:flex-end;overflow:hidden;}
+.project-hero-bg{position:absolute;inset:0;}
+.project-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.55);}
+.project-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(17,27,40,1) 0%,rgba(17,27,40,0.3) 50%,transparent 100%);}
+.project-hero-content{position:relative;z-index:2;padding:0 4rem 5rem;width:100%;}
+.project-breadcrumb{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:rgba(247,244,239,0.45);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.6rem;opacity:0;animation:fadeUp 0.7s 0.2s forwards;}
+.project-breadcrumb span{color:var(--gold);}
+.project-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,5rem);font-weight:300;line-height:1.0;color:var(--off-white);opacity:0;animation:fadeUp 0.8s 0.35s forwards;}
+.project-hero-title em{font-style:italic;color:var(--gold-light);}
+.project-hero-meta{display:flex;gap:3rem;margin-top:1.75rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s 0.5s forwards;}
+.meta-label{font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
+.meta-value{font-size:0.88rem;font-weight:300;color:rgba(247,244,239,0.75);}
+.project-gallery{padding:5rem 4rem;background:var(--navy-deep);}
+.gallery-main{margin-bottom:1rem;overflow:hidden;cursor:zoom-in;}
+.gallery-main img{width:100%;height:60vh;min-height:400px;object-fit:cover;display:block;transition:transform 0.5s ease;}
+.gallery-main:hover img{transform:scale(1.02);}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:0.85rem;}
+.gallery-thumb{overflow:hidden;cursor:pointer;position:relative;}
+.gallery-thumb img{width:100%;height:160px;object-fit:cover;display:block;filter:brightness(0.7);transition:filter 0.3s,transform 0.4s;}
+.gallery-thumb:hover img,.gallery-thumb.active img{filter:brightness(1);transform:scale(1.04);}
+.gallery-thumb.active::after{content:'';position:absolute;inset:0;border:2px solid var(--gold);}
+.project-body{padding:6rem 4rem;display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start;background:var(--navy-mid);}
+.project-info-sticky{position:sticky;top:8rem;}
+.project-section-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem;}
+.project-section-label::before{content:'';display:block;width:1.5rem;height:1px;background:var(--gold);}
+.project-info-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,2.8vw,2.5rem);font-weight:300;line-height:1.2;color:var(--off-white);margin-bottom:1.5rem;}
+.project-info-title em{font-style:italic;color:var(--gold-light);}
+.project-specs{display:flex;flex-direction:column;gap:0;margin-top:2rem;}
+.spec-row{display:flex;justify-content:space-between;padding:0.9rem 0;border-bottom:1px solid rgba(247,244,239,0.07);}
+.spec-key{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(247,244,239,0.45);}
+.spec-val{font-size:0.85rem;font-weight:300;color:var(--off-white);}
+.project-cta-box{margin-top:2.5rem;padding:2rem;border:1px solid rgba(200,145,58,0.28);background:rgba(200,145,58,0.03);}
+.project-cta-box p{font-size:0.82rem;font-weight:300;color:rgba(247,244,239,0.5);margin-bottom:1.25rem;line-height:1.7;}
+.btn-gold{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--navy-deep);padding:0.9rem 2.2rem;text-decoration:none;border:none;cursor:pointer;transition:background 0.3s,transform 0.2s;display:inline-block;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.project-desc-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;font-style:italic;line-height:1.7;color:rgba(247,244,239,0.8);margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,145,58,0.15);}
+.project-desc-body{font-size:0.9rem;font-weight:300;line-height:1.9;color:rgba(247,244,239,0.55);}
+.project-desc-body p{margin-bottom:1.25rem;}
+.highlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;}
+.highlight-item{padding:1.5rem;border:1px solid rgba(200,145,58,0.15);background:rgba(200,145,58,0.03);}
+.highlight-icon{font-size:1.4rem;margin-bottom:0.75rem;color:var(--gold);}
+.highlight-label{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;}
+.highlight-text{font-size:0.8rem;font-weight:300;color:rgba(247,244,239,0.45);line-height:1.6;}
+.related-projects{padding:6rem 4rem;background:var(--navy-deep);border-top:1px solid rgba(200,145,58,0.1);}
+.related-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,2.5vw,2.5rem);font-weight:300;color:var(--off-white);margin-bottom:2.5rem;}
+.related-title em{font-style:italic;}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.related-card{display:block;text-decoration:none;overflow:hidden;position:relative;}
+.related-card img{width:100%;height:220px;object-fit:cover;filter:brightness(0.75);transition:filter 0.4s,transform 0.5s;display:block;}
+.related-card:hover img{filter:brightness(0.9);transform:scale(1.04);}
+.related-card-info{position:absolute;bottom:0;left:0;right:0;padding:1.25rem;background:linear-gradient(to top,rgba(17,27,40,0.95),transparent);}
+.related-tag{font-family:'Barlow Condensed',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);}
+.related-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--off-white);}
+.project-footer-bar{background:var(--navy-mid);padding:2rem 4rem;border-top:1px solid rgba(200,145,58,0.12);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:0.72rem;color:rgba(247,244,239,0.25);}
+.footer-links-inline{display:flex;gap:2rem;}
+.footer-links-inline a{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(247,244,239,0.4);text-decoration:none;transition:color 0.3s;}
+.footer-links-inline a:hover{color:var(--gold);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:1024px){.project-body{grid-template-columns:1fr;gap:3rem;}.project-info-sticky{position:static;}.related-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){nav{padding:1rem 1.5rem;}.project-hero-content{padding:0 1.5rem 3.5rem;}.project-gallery,.project-body,.related-projects{padding:3.5rem 1.5rem;}.gallery-thumbs{grid-template-columns:repeat(4,1fr);gap:0.5rem;}.gallery-thumb img{height:80px;}.project-hero-meta{gap:1.5rem;}.highlight-grid{grid-template-columns:1fr;}.related-grid{grid-template-columns:1fr;}.project-footer-bar{padding:1.5rem;}}
+</style>
+    <link rel="icon" type="image/svg+xml" href="logo%20%26%20Favicon/light%20mode.svg">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo%20%26%20Favicon/light%20mode.svg" alt="MAF Design Projects" style="width:44px;height:44px;object-fit:contain;display:block;">
+    <div class="nav-logo-text">MAF Design Projects<span>Architecture · Construction · Interiors</span></div>
+  </a>
+  <a href="index.html#projects" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12L3 8L7 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    All Projects
+  </a>
+  <a href="index.html#start-project" class="nav-cta">Start a Project</a>
+</nav>
+
+<section class="project-hero">
+  <div class="project-hero-bg">
+    <img id="heroImg" src="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/cover.jpg" alt="Interior Design of Bedroom and Toilet, Epe, Lagos">
+  </div>
+  <div class="project-hero-content">
+    <div class="project-breadcrumb">MAF Design Projects <span>›</span> Interior Design <span>›</span> Epe, Lagos</div>
+    <h1 class="project-hero-title">Bedroom & Toilet<br><em>Interior Design</em></h1>
+    <div class="project-hero-meta">
+      <div class="meta-item"><div class="meta-label">Location</div><div class="meta-value">Epe, Lagos</div></div>
+      <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">Interior Design</div></div>
+      <div class="meta-item"><div class="meta-label">Service</div><div class="meta-value">Interior Design & Fit-Out</div></div>
+      <div class="meta-item"><div class="meta-label">Status</div><div class="meta-value">Design Completed</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="project-gallery">
+  <div class="gallery-main" id="galleryMain">
+    <img id="galleryMainImg" src="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/cover.jpg" alt="Main view">
+  </div>
+  <div class="gallery-thumbs">
+    <div class="gallery-thumb active" data-img="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/cover.jpg">
+      <img src="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/cover.jpg" alt="Cover view">
+    </div>
+    <div class="gallery-thumb" data-img="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/1.jpg">
+      <img src="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/1.jpg" alt="View 1">
+    </div>
+    <div class="gallery-thumb" data-img="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/2.jpg">
+      <img src="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/2.jpg" alt="View 2">
+    </div>
+    <div class="gallery-thumb" data-img="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/3.jpg">
+      <img src="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Epe%2C%20Lagos/3.jpg" alt="View 3">
+    </div>
+  </div>
+</section>
+
+<section class="project-body">
+  <div class="project-info-sticky">
+    <div class="project-section-label">Project Details</div>
+    <h2 class="project-info-title">Quiet luxury on the <em>Lagos waterfront.</em></h2>
+    <div class="project-specs">
+      <div class="spec-row"><span class="spec-key">Location</span><span class="spec-val">Epe, Lagos</span></div>
+      <div class="spec-row"><span class="spec-key">Scope</span><span class="spec-val">Bedroom & Toilet</span></div>
+      <div class="spec-row"><span class="spec-key">Service</span><span class="spec-val">Interior Design & Fit-Out</span></div>
+      <div class="spec-row"><span class="spec-key">Style</span><span class="spec-val">Contemporary</span></div>
+      <div class="spec-row"><span class="spec-key">Features</span><span class="spec-val">Bespoke Furniture, Luxury Bathroom</span></div>
+      <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val">Design Completed</span></div>
+    </div>
+    <div class="project-cta-box">
+      <p>Interested in a similar project? We'd love to bring your vision to life.</p>
+      <a href="index.html#start-project" class="btn-gold">Start Your Project</a>
+    </div>
+  </div>
+
+  <div class="project-description">
+    <p class="project-desc-text">"Epe sits apart from the city's noise — and this interior design takes its cue from that distance, building a bedroom and bathroom around the idea of earned rest."</p>
+    <div class="project-desc-body">
+      <p>Epe has long offered something Lagos Island and the mainland cannot: space, quiet, and a relationship with water that changes the character of every morning. For this interior design commission, MAF Design Projects worked within a bedroom and adjoining toilet to create a suite that honours that slower, more considered pace of life — a space that feels genuinely removed from the city's demands.</p>
+      <p>The bedroom palette is restrained: off-white walls, warm timber joinery, and a soft textile layering that adds depth without visual noise. The bed is centred on the longest wall, with custom bedside units that keep the floor plane clear and the room uncluttered. A full-height wardrobe wall is dressed in matte-finish cladding with concealed handles, giving the room a seamless backdrop that makes the space feel larger than its dimensions suggest.</p>
+      <p>The toilet and bathroom zone is finished in large-format stone-effect tiles, with a wall-hung vanity and vessel basin that keep the floor clean and the visual weight light. Warm-white lighting throughout the suite — both overhead and accent — ensures the space transitions naturally from a bright, purposeful morning to a warm, restorative evening.</p>
+    </div>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="highlight-icon">◈</div><div class="highlight-label">Restrained Palette</div><div class="highlight-text">Warm neutrals and timber tones that create calm without coldness.</div></div>
+      <div class="highlight-item"><div class="highlight-icon">◈</div><div class="highlight-label">Seamless Storage</div><div class="highlight-text">Full-height concealed wardrobe that expands the perceived size of the room.</div></div>
+      <div class="highlight-item"><div class="highlight-icon">◈</div><div class="highlight-label">Stone-Effect Bathroom</div><div class="highlight-text">Large-format tiles and a wall-hung vanity for a hotel-quality finish.</div></div>
+      <div class="highlight-item"><div class="highlight-icon">◈</div><div class="highlight-label">Warm Lighting Design</div><div class="highlight-text">Layered lighting calibrated for both morning energy and evening calm.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="related-projects">
+  <h2 class="related-title">More work we're <em>proud of</em></h2>
+  <div class="related-grid">
+    <a href="project-interior-design-of-bedroom-toilet-alimosho-lagos.html" class="related-card">
+      <img src="images/projects/Interior%20Design%20of%20Bedroom%20%26%20Toilet%2C%20Alimosho%2C%20Lagos/cover.jpg" alt="Interior Design, Alimosho">
+      <div class="related-card-info"><div class="related-tag">Interior Design</div><div class="related-name">Bedroom & Toilet Design — Alimosho</div></div>
+    </a>
+    <a href="project-5-bedroom-duplex-chevron-lagos.html" class="related-card">
+      <img src="images/projects/5%20bedroom%20Duplex%2C%20Chevron%2C%20Lagos/cover.jpg" alt="5 Bedroom Duplex, Chevron">
+      <div class="related-card-info"><div class="related-tag">Architecture</div><div class="related-name">5 Bedroom Duplex — Chevron</div></div>
+    </a>
+    <a href="project-reedemed-church-design.html" class="related-card">
+      <img src="images/projects/Reedemed%20Church%20Design/1.jpg" alt="Reedemed Church Design">
+      <div class="related-card-info"><div class="related-tag">Architecture</div><div class="related-name">Church Design — Lagos</div></div>
+    </a>
+  </div>
+</section>
+
+<div class="project-footer-bar">
+  <div class="footer-copy">© 2025 MAF Design Projects. All rights reserved.</div>
+  <div class="footer-links-inline">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#start-project">Work With Us</a>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.gallery-thumb').forEach(function(thumb) {
+  thumb.addEventListener('click', function() {
+    var img = thumb.getAttribute('data-img');
+    var mainImg = document.getElementById('galleryMainImg');
+    mainImg.style.opacity = '0';
+    mainImg.style.transform = 'scale(0.98)';
+    mainImg.style.transition = 'opacity 0.3s, transform 0.3s';
+    setTimeout(function() { mainImg.src = img; mainImg.style.opacity = '1'; mainImg.style.transform = 'scale(1)'; }, 280);
+    document.querySelectorAll('.gallery-thumb').forEach(function(t) { t.classList.remove('active'); });
+    thumb.classList.add('active');
+  });
+});
+var thumbs = document.querySelectorAll('.gallery-thumb');
+var currentIdx = 0;
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % thumbs.length; thumbs[currentIdx].click(); }
+  if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + thumbs.length) % thumbs.length; thumbs[currentIdx].click(); }
+});
+</script>
+</body>
+</html>
