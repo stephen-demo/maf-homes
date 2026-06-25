@@ -41,6 +41,10 @@ nav.scrolled{background:rgba(17,27,40,0.97);backdrop-filter:blur(12px);border-bo
 .hero-eyebrow::before{content:'';display:block;width:2.5rem;height:1px;background:var(--gold);}
 .hero-title{font-family:'THICCCBOI',sans-serif;font-size:clamp(3.2rem,6.5vw,6rem);font-weight:300;line-height:1.0;color:var(--off-white);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.9s 0.4s forwards;}
 .hero-title em{font-style:normal;font-weight:950;color:var(--gold-light);}
+.hero-word{display:inline-block;position:relative;color:var(--gold-light);transition:opacity 0.4s,transform 0.4s;}
+.hero-word.exit{opacity:0;transform:translateY(-18px);}
+.hero-word.enter{opacity:0;transform:translateY(18px);}
+.hero-word.visible{opacity:1;transform:translateY(0);}
 .hero-sub{font-size:0.95rem;font-weight:300;line-height:1.75;color:rgba(247,244,239,0.65);max-width:460px;margin-bottom:2.5rem;opacity:0;animation:fadeUp 0.9s 0.6s forwards;}
 .hero-actions{display:flex;gap:1.25rem;align-items:center;opacity:0;animation:fadeUp 0.9s 0.8s forwards;}
 .btn-gold{font-family:'THICCCBOI',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--gold);color:var(--navy-deep);padding:0.9rem 2.2rem;text-decoration:none;border:none;cursor:pointer;transition:background 0.3s,transform 0.2s;display:inline-block;}
@@ -334,7 +338,7 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(200,145,58,0.12);pa
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Lagos · Nigeria</div>
-    <h1 class="hero-title">Spaces that tell <em>your story.</em></h1>
+    <h1 class="hero-title"><span class="hero-word visible" id="heroWord">Spaces</span> that tell <em>your story.</em></h1>
     <p class="hero-sub">We design and build homes, interiors, and commercial spaces that reflect who you are — thoughtful, balanced, and built to last.</p>
     <div class="hero-actions">
       <a href="#start-project" class="btn-gold">Start Your Project</a>
@@ -687,6 +691,27 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(openAccordion, 400);
     });
   });
+
+  // Hero word cycle
+  var heroWords = ['Spaces','Homes','Interiors','Structures','Buildings','Designs'];
+  var heroWordEl = document.getElementById('heroWord');
+  var heroIndex = 0;
+  setInterval(function() {
+    heroIndex = (heroIndex + 1) % heroWords.length;
+    heroWordEl.classList.remove('visible');
+    heroWordEl.classList.add('exit');
+    setTimeout(function() {
+      heroWordEl.textContent = heroWords[heroIndex];
+      heroWordEl.classList.remove('exit');
+      heroWordEl.classList.add('enter');
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          heroWordEl.classList.remove('enter');
+          heroWordEl.classList.add('visible');
+        });
+      });
+    }, 400);
+  }, 2800);
 
   // Brochure modal
   var SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
