@@ -144,6 +144,11 @@ nav.scrolled{background:rgba(17,27,40,0.97);backdrop-filter:blur(12px);border-bo
 .about-pillar{border-left:2px solid var(--gold);padding-left:0.85rem;}
 .about-pillar-name{font-family:'THICCCBOI',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
 .about-pillar-desc{font-size:0.75rem;color:rgba(247,244,239,0.38);margin-top:0.15rem;}
+.about-mission{font-size:0.84rem;font-weight:300;line-height:1.8;color:rgba(247,244,239,0.42);border-left:2px solid rgba(200,145,58,0.35);padding-left:1rem;margin-top:1.5rem;font-style:italic;}
+.btn-brochure{display:inline-flex;align-items:center;gap:0.55rem;font-family:'THICCCBOI',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,244,239,0.5);border:1px solid rgba(247,244,239,0.16);padding:0.6rem 1.2rem;text-decoration:none;transition:color 0.3s,border-color 0.3s;margin-top:1.75rem;width:fit-content;}
+.btn-brochure:hover{color:var(--gold);border-color:rgba(200,145,58,0.55);}
+.footer-brochure{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.75rem;font-weight:400;color:rgba(247,244,239,0.3);text-decoration:none;transition:color 0.3s;margin-top:0.75rem;}
+.footer-brochure:hover{color:var(--gold);}
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
 .team-card{background:var(--navy-mid);overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;}
 .team-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
@@ -390,13 +395,18 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(200,145,58,0.12);pa
   <div class="about-grid">
     <div class="about-left reveal">
       <h2 class="about-tagline">A hands-on team that bridges <em>design intent</em> and on-site execution.</h2>
-      <p class="about-body">MAF Design Projects is a multidisciplinary architecture and construction firm based in Lagos. We specialise in translating bold ideas into spaces that are beautiful, buildable, and built to last — from first sketch to final key handover.</p>
+      <p class="about-body">MAF Design Projects is a multidisciplinary firm specialising in Architecture, Construction, and Interior Design. We are committed to delivering innovative, functional, and aesthetically pleasing spaces that transform our clients' visions into reality.</p>
       <p class="about-body">We're not just designers. We manage the build ourselves, which means what gets drawn is exactly what gets built. No surprises, no shortcuts.</p>
+      <p class="about-mission">Our mission is to transform ideas into exceptional spaces through innovative design, sustainable practices, and meticulous execution — creating environments that inspire and endure.</p>
       <div class="about-pillars">
         <div class="about-pillar"><div class="about-pillar-name">Innovative</div><div class="about-pillar-desc">Modern & traditional techniques</div></div>
         <div class="about-pillar"><div class="about-pillar-name">Sustainable</div><div class="about-pillar-desc">Eco-conscious practices</div></div>
         <div class="about-pillar"><div class="about-pillar-name">Precise</div><div class="about-pillar-desc">On time, on budget</div></div>
       </div>
+      <a href="MAF-Design-Projects-Brochure.pdf" download class="btn-brochure">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download Our Brochure
+      </a>
     </div>
     <div class="team-grid reveal reveal-d2">
       <div class="team-card"><img class="team-img" src="images/team/micheal.png" alt="Michael A.F."><div class="team-info"><div class="team-name">Michael A.F.</div><div class="team-role">Architecture & Project Lead</div><div class="team-desc">Leads architectural concept, planning, and design coordination from idea to execution.</div></div></div>
@@ -527,6 +537,10 @@ footer{background:var(--navy-deep);border-top:1px solid rgba(200,145,58,0.12);pa
       <a href="tel:+2349041104480" class="footer-contact-link">+234 904 110 4480</a>
       <a href="mailto:m.a.fdesignprojects@gmail.com" class="footer-contact-link">m.a.fdesignprojects@gmail.com</a>
       <a href="https://mafdesignprojects.taplink.ws" target="_blank" rel="noopener" class="footer-contact-link">mafdesignprojects.taplink.ws</a>
+      <a href="MAF-Design-Projects-Brochure.pdf" download class="footer-brochure">
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download Brochure
+      </a>
     </div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#services">Architecture & Design</a></li><li><a href="#services">Construction Management</a></li><li><a href="#services">Interior Design</a></li><li><a href="#services">Real Estate Advisory</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="#about">About Us</a></li><li><a href="#process">Our Process</a></li><li><a href="#testimonials">Client Stories</a></li><li><a href="#faq">FAQ</a></li></ul></div>
